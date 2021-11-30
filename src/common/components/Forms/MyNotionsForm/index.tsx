@@ -3,6 +3,11 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
+// assets
+import { ReactComponent as FilterIcon } from '../../../../assets/icons/filters.svg';
+import { ReactComponent as CalendarIcon } from '../../../../assets/icons/calendar.svg';
+import { ReactComponent as ArrowDownIcon } from '../../../../assets/icons/arrowDown.svg';
+
 // styles
 import { useStyles } from './styles';
 
@@ -46,6 +51,30 @@ function MyNotionsForm() {
         <div className={classes.line} />
 
         <Typography className={classes.subTitle}>Histórico</Typography>
+
+        <div className={classes.filtersContainer}>
+          <FilterIcon />
+          <Typography className={classes.filtersLabel}>Histórico</Typography>
+        </div>
+
+        <ul className={classes.historyList}>
+          <li className={classes.historyItem}>
+            <CalendarIcon className={classes.historyItemIcon} />
+
+            <Typography className={classes.historyItemDate}>
+              20/01/2021
+            </Typography>
+
+            <Typography className={classes.historyItemText}>
+              Cliente pediu outras opções de destino
+            </Typography>
+          </li>
+        </ul>
+
+        <div className={classes.footerContainer}>
+          <span>Ver todas as anotações</span>
+          <ArrowDownIcon stroke='#237FD0' />
+        </div>
       </form>
     </div>
   );
