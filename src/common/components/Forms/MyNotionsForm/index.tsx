@@ -69,11 +69,35 @@ function MyNotionsForm() {
               Cliente pediu outras opções de destino
             </Typography>
           </li>
+
+          <li className={classes.historyItem}>
+            <CalendarIcon className={classes.historyItemIcon} />
+
+            <Typography className={classes.historyItemDate}>
+              20/01/2021
+            </Typography>
+
+            <Typography className={classes.historyItemText}>
+              Cliente pediu outras opções de destino
+            </Typography>
+          </li>
+
+          <li className={classes.historyItem}>
+            <CalendarIcon className={classes.historyItemIcon} />
+
+            <Typography className={classes.historyItemDate}>
+              20/01/2021
+            </Typography>
+
+            <Typography className={classes.historyItemText}>
+              Cliente pediu outras opções de destino
+            </Typography>
+          </li>
         </ul>
 
         <div className={classes.footerContainer}>
           <span>Ver todas as anotações</span>
-          <ArrowDownIcon stroke='#237FD0' />
+          <ArrowDownIcon stroke="#237FD0" />
         </div>
       </form>
     </div>
