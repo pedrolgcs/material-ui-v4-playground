@@ -4,7 +4,10 @@ export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
       width: '100%',
-      minWidth: '870px',
+
+      [theme.breakpoints.up('md')]: {
+        minWidth: '870px',
+      },
     },
 
     formContainer: {
@@ -28,7 +31,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       margin: '10px 0 5px',
 
       '&:hover': {
-        backgroundColor: '#67C413',
+        backgroundColor: '#7DCC6C',
       },
     },
 
@@ -110,7 +113,7 @@ export const useStyles = makeStyles((theme: Theme) =>
 
       '&:hover': {
         borderBottom: '1px solid #237FD0',
-      }
+      },
     },
   })
 );
