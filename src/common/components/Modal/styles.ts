@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       lineHeight: '26px',
       fontWeight: 'bold',
     },
-    closeDialog: {
+    closeModal: {
       position: 'absolute',
       cursor: 'pointer',
       backgroundColor: '#DDDDDD',

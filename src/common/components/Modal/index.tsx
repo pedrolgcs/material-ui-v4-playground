@@ -13,7 +13,7 @@ type DialogProps = {
   children: React.ReactNode;
 };
 
-function MyDialog({ title, open, toggleDialog, children }: DialogProps) {
+function Modal({ title, open, toggleDialog, children }: DialogProps) {
   const classes = useStyles();
 
   return (
@@ -23,7 +23,7 @@ function MyDialog({ title, open, toggleDialog, children }: DialogProps) {
       PaperProps={{ style: { overflowY: 'visible' } }}
       maxWidth="md"
     >
-      <div className={classes.closeDialog} onClick={toggleDialog}>
+      <div className={classes.closeModal} onClick={toggleDialog}>
         <CloseOutlined fontSize={'medium'} />
       </div>
 
@@ -34,4 +34,4 @@ function MyDialog({ title, open, toggleDialog, children }: DialogProps) {
   );
 }
 
-export { MyDialog };
+export { Modal };

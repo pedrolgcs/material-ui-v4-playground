@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 
 // components
-import { MyDialog } from '../../common/components/Dialog';
+import { Modal } from '../../common/components/Modal';
 import { MyNotionsForm } from '../../common/components/Forms/MyNotionsForm';
 
 // styles
@@ -27,13 +27,13 @@ const Home: React.FC = () => {
       </Button>
 
       {/* Dialog */}
-      <MyDialog
+      <Modal
         title="Minhas anotações"
         open={openDialog}
         toggleDialog={toggleDialog}
       >
         <MyNotionsForm />
-      </MyDialog>
+      </Modal>
     </div>
   );
 };
