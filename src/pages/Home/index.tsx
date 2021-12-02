@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 
 // components
 import { Modal } from '../../common/components/Modal';
-import { MyNotionsForm } from '../../common/components/Forms/MyNotionsForm';
+import { NotionsForm } from '../../tmp/NotionsForm';
 
 // styles
 import { useStyles } from './styles';
@@ -32,7 +32,7 @@ const Home: React.FC = () => {
         open={openDialog}
         toggleDialog={toggleDialog}
       >
-        <MyNotionsForm />
+        <NotionsForm />
       </Modal>
     </div>
   );

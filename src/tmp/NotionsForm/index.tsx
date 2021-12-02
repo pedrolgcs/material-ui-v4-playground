@@ -1,17 +1,19 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
 // assets
-import { ReactComponent as FilterIcon } from '../../../../assets/icons/filters.svg';
-import { ReactComponent as CalendarIcon } from '../../../../assets/icons/calendar.svg';
-import { ReactComponent as ArrowDownIcon } from '../../../../assets/icons/arrowDown.svg';
+import { ReactComponent as FilterIcon } from '../../assets/icons/filters.svg';
+import { ReactComponent as CalendarIcon } from '../../assets/icons/calendar.svg';
+import { ReactComponent as ArrowDownIcon } from '../../assets/icons/arrowDown.svg';
+
+// components
+import { Input } from '../../common/components/Forms/Input';
 
 // styles
 import { useStyles } from './styles';
 
-function MyNotionsForm() {
+function NotionsForm() {
   const [notion, setNotion] = React.useState('');
 
   function handleSubmit(event: React.FormEvent) {
@@ -30,11 +32,9 @@ function MyNotionsForm() {
       >
         <Typography className={classes.subTitle}>Nova nota</Typography>
 
-        <TextField
+        <Input
           variant="outlined"
           placeholder="Digite seu texto aqui"
-          inputProps={{ style: {} }}
-          margin="normal"
           value={notion}
           onChange={(event) => setNotion(event.target.value)}
         />
@@ -104,4 +104,4 @@ function MyNotionsForm() {
   );
 }
 
-export { MyNotionsForm };
+export { NotionsForm };

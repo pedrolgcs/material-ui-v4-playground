@@ -3,11 +3,11 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core';
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     title: {
-      padding: '24px 24px 0px',
       color: '#333333',
       fontSize: '26px',
       lineHeight: '26px',
       fontWeight: 'bold',
+      textAlign: 'center',
     },
 
     closeModal: {

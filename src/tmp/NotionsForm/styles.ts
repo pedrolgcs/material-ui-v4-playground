@@ -104,16 +104,10 @@ export const useStyles = makeStyles((theme: Theme) =>
       fontWeight: 'bold',
       color: '#237FD0',
       marginLeft: 'auto',
-      borderBottom: '1px solid transparent',
 
       display: 'flex',
       alignItems: 'center',
       gap: '10px',
-      transition: 'all 0.3s ease-in-out',
-
-      '&:hover': {
-        borderBottom: '1px solid #237FD0',
-      },
     },
   })
 );
