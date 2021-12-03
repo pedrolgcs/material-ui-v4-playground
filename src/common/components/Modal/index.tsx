@@ -20,7 +20,7 @@ function Modal({ title, open, toggleDialog, children }: DialogProps) {
     <Dialog
       open={open}
       onClose={toggleDialog}
-      PaperProps={{ style: { overflowY: 'visible', padding: '10px 5px' } }}
+      PaperProps={{ style: { overflowY: 'visible', padding: '10px 8px' } }}
       maxWidth="md"
     >
       <div className={classes.closeModal} onClick={toggleDialog}>
