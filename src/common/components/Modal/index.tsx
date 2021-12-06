@@ -9,21 +9,21 @@ import { useStyles } from './styles';
 type DialogProps = {
   title?: string;
   open: boolean;
-  toggleDialog: () => void;
+  toggleModal: () => void;
   children: React.ReactNode;
 };
 
-function Modal({ title, open, toggleDialog, children }: DialogProps) {
+function Modal({ title, open, toggleModal, children }: DialogProps) {
   const classes = useStyles();
 
   return (
     <Dialog
       open={open}
-      onClose={toggleDialog}
+      onClose={toggleModal}
       PaperProps={{ style: { overflowY: 'visible', padding: '10px 8px' } }}
       maxWidth="md"
     >
-      <div className={classes.closeModal} onClick={toggleDialog}>
+      <div className={classes.closeModal} onClick={toggleModal}>
         <CloseOutlined fontSize={'medium'} />
       </div>
 

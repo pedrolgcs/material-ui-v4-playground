@@ -11,6 +11,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
 
     formContainer: {
+      gap: '15px',
       display: 'flex',
       flexDirection: 'column',
     },
@@ -39,15 +40,20 @@ export const useStyles = makeStyles((theme: Theme) =>
       height: '1px',
       width: '100%',
       background: 'rgba(0, 0, 0, 0.2)',
-      margin: '20px 0',
+      margin: '20px 0 15px',
     },
 
     filtersContainer: {
-      margin: '20px 0',
+      margin: '20px 0 10px',
 
       display: 'flex',
       alignItems: 'center',
       gap: '20px',
+    },
+
+    filtersIcon: {
+      width: '35px',
+      height: '35px',
     },
 
     filtersLabel: {

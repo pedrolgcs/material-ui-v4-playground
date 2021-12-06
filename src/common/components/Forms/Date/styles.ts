@@ -9,12 +9,10 @@ export const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       alignItems: 'center',
     },
-    input: {
+    textField: {
+      width: '100%',
       marginLeft: theme.spacing(1),
-      flex: 1,
-    },
-    iconButton: {
-      margin: '0 8px',
+      marginRight: theme.spacing(1),
     },
   })
 );

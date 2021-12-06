@@ -1,9 +1,24 @@
-import React from 'react';
+import TextField from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper';
 
-// import { Container } from './styles';
+// styles
+import { useStyles } from './styles';
 
-const Date: React.FC = () => {
-  return <div />;
+function DateInput() {
+  const classes = useStyles();
+
+  return (
+    <Paper className={classes.root} variant="outlined">
+      <TextField
+        type="date"
+        defaultValue="2017-05-24"
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
+    </Paper>
+  );
 }
 
-export default Date;
+export { DateInput };

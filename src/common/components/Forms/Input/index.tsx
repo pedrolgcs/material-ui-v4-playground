@@ -1,19 +1,32 @@
-import { TextField, TextFieldProps } from '@material-ui/core';
+import Paper from '@material-ui/core/Paper';
+import { InputBase, InputBaseProps } from '@material-ui/core';
+import { SvgIconComponent } from '@material-ui/icons';
+import IconButton from '@material-ui/core/IconButton';
 
 // styles
 import { useStyles } from './styles';
 
-type InputProps = TextFieldProps & {};
+type InputProps = InputBaseProps & {
+  icon?: SvgIconComponent;
+};
 
-function Input({ ...rest }: InputProps) {
+function Input({ icon: Icon, ...rest }: InputProps) {
   const classes = useStyles();
 
   return (
-    <TextField
-      margin="normal"
-      className={classes.root}
-      {...rest}
-    />
+    <Paper className={classes.root} variant="outlined">
+      <InputBase
+        className={classes.input}
+        placeholder="Search Google Maps"
+        inputProps={{ 'aria-label': 'search google maps' }}
+        {...rest}
+      />
+      {Icon && (
+        <IconButton type="submit" style={{ padding: '0px' }}>
+          <Icon className={classes.iconButton} />
+        </IconButton>
+      )}
+    </Paper>
   );
 }
 

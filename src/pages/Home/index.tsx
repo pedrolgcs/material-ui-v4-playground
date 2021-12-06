@@ -11,7 +11,7 @@ import { useStyles } from './styles';
 const Home: React.FC = () => {
   const [openDialog, setOpenDialog] = React.useState(false);
 
-  function toggleDialog() {
+  function toggleModal() {
     setOpenDialog(!openDialog);
   }
 
@@ -22,7 +22,7 @@ const Home: React.FC = () => {
       <h1 className={classes.title}>Material UI</h1>
 
       {/* Open dialog button */}
-      <Button variant="contained" color="primary" onClick={toggleDialog}>
+      <Button variant="contained" color="primary" onClick={toggleModal}>
         Open dialog
       </Button>
 
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
       <Modal
         title="Minhas anotações"
         open={openDialog}
-        toggleDialog={toggleDialog}
+        toggleModal={toggleModal}
       >
         <NotionsForm />
       </Modal>
