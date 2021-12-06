@@ -17,7 +17,6 @@ function Input({ icon: Icon, ...rest }: InputProps) {
     <Paper className={classes.root} variant="outlined">
       <InputBase
         className={classes.input}
-        placeholder="Search Google Maps"
         inputProps={{ 'aria-label': 'search google maps' }}
         {...rest}
       />

@@ -17,6 +17,15 @@ import { useStyles } from './styles';
 
 function NotionsForm() {
   const [notion, setNotion] = React.useState('');
+  const [filters, setFilters] = React.useState({
+    date: '',
+    notion: '',
+  });
+
+  function handleChangeFilter(event: React.ChangeEvent<HTMLInputElement>) {
+    const { name, value } = event.target;
+    setFilters({ ...filters, [name]: value });
+  }
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -58,8 +67,19 @@ function NotionsForm() {
         <FilterIcon className={classes.filtersIcon} />
         <Typography className={classes.filtersLabel}>Filtros</Typography>
 
-        <Input icon={SearchIcon} />
-        <DateInput />
+        <DateInput
+          name="date"
+          onChange={handleChangeFilter}
+          value={filters['date']}
+        />
+
+        <Input
+          name="notion"
+          placeholder="Buscar palavra"
+          icon={SearchIcon}
+          onChange={handleChangeFilter}
+          value={filters['notion']}
+        />
       </div>
 
       <ul className={classes.historyList}>

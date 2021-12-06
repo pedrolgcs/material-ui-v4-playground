@@ -4,14 +4,22 @@ import Paper from '@material-ui/core/Paper';
 // styles
 import { useStyles } from './styles';
 
-function DateInput() {
+type DateInputProps = {
+  name: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+};
+
+function DateInput({ onChange, value, name }: DateInputProps) {
   const classes = useStyles();
 
   return (
     <Paper className={classes.root} variant="outlined">
       <TextField
         type="date"
-        defaultValue="2017-05-24"
+        name={name}
+        onChange={onChange}
+        value={value}
         className={classes.textField}
         InputLabelProps={{
           shrink: true,
