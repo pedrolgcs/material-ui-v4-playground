@@ -6,32 +6,47 @@ import CloseOutlined from '@material-ui/icons/CloseOutlined';
 // styles
 import { useStyles } from './styles';
 
-type DialogProps = {
+type ModalProps = {
   title?: string;
   open: boolean;
   toggleModal: () => void;
   children: React.ReactNode;
 };
 
-function Modal({ title, open, toggleModal, children }: DialogProps) {
+function Modal({ title, open, toggleModal, children }: ModalProps) {
   const classes = useStyles();
 
   return (
     <Dialog
       open={open}
       onClose={toggleModal}
-      PaperProps={{ style: { overflowY: 'visible', padding: '10px 8px' } }}
+      PaperProps={{
+        style: {
+          overflowY: 'visible',
+          padding: '10px 8px',
+          borderRadius: '16px',
+        },
+      }}
       maxWidth="md"
     >
-      <div className={classes.titleContainer}>
-        <Typography variant="h1" className={classes.title}>
-          {title}
-        </Typography>
+      {title ? (
+        <div className={classes.titleContainer}>
+          <Typography variant="h1" className={classes.title}>
+            {title}
+          </Typography>
 
-        <div onClick={toggleModal}>
-          <CloseOutlined className={classes.closeModal} />
+          <div className={classes.closeContainer} onClick={toggleModal}>
+            <CloseOutlined className={classes.closeButton} />
+          </div>
         </div>
-      </div>
+      ) : (
+        <div
+          className={classes.relativeCloseButtonContainer}
+          onClick={toggleModal}
+        >
+          <CloseOutlined className={classes.absoluteCloseButton} />
+        </div>
+      )}
 
       <DialogContent>{children}</DialogContent>
     </Dialog>

@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import SearchIcon from '@material-ui/icons/Search';
 
 // assets
 import { ReactComponent as FilterIcon } from '../../assets/icons/filters.svg';
@@ -75,8 +74,8 @@ function NotionsForm() {
 
         <Input
           name="notion"
+          right="search"
           placeholder="Buscar palavra"
-          icon={SearchIcon}
           onChange={handleChangeFilter}
           value={filters['notion']}
         />

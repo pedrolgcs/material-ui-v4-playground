@@ -1,31 +1,62 @@
-import Paper from '@material-ui/core/Paper';
-import { InputBase, InputBaseProps } from '@material-ui/core';
-import { SvgIconComponent } from '@material-ui/icons';
-import IconButton from '@material-ui/core/IconButton';
+import {
+  TextField,
+  TextFieldProps,
+  IconButton,
+  InputAdornment,
+} from '@material-ui/core';
+import { Search, Person, Create } from '@material-ui/icons';
 
 // styles
 import { useStyles } from './styles';
 
-type InputProps = InputBaseProps & {
-  icon?: SvgIconComponent;
+const icons = {
+  search: <Search />,
+  person: <Person />,
+  create: <Create />,
 };
 
-function Input({ icon: Icon, ...rest }: InputProps) {
+type InputProps = TextFieldProps & {
+  right?: 'search' | 'person' | 'create';
+  left?: 'search' | 'person' | 'create';
+};
+
+function Input({ right, left, ...props }: InputProps) {
   const classes = useStyles();
 
+  // start icon
+  const startAdornment = () => {
+    if (left) {
+      return <InputAdornment position="start">{icons[left]}</InputAdornment>;
+    } else {
+      return null;
+    }
+  };
+
+  // end icon
+  const endAdornment = () => {
+    if (right) {
+      return (
+        <InputAdornment position="end">
+          <IconButton onClick={() => console.log('Clicked')}>
+            {icons[right]}
+          </IconButton>
+        </InputAdornment>
+      );
+    } else {
+      return null;
+    }
+  };
+
   return (
-    <Paper className={classes.root} variant="outlined">
-      <InputBase
-        className={classes.input}
-        inputProps={{ 'aria-label': 'search google maps' }}
-        {...rest}
-      />
-      {Icon && (
-        <IconButton type="submit" style={{ padding: '0px' }}>
-          <Icon className={classes.iconButton} />
-        </IconButton>
-      )}
-    </Paper>
+    <TextField
+      className={classes.root}
+      variant="outlined"
+      InputProps={{
+        startAdornment: startAdornment(),
+        endAdornment: endAdornment(),
+      }}
+      {...props}
+    />
   );
 }
 
