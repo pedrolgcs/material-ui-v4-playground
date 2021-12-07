@@ -1,5 +1,5 @@
 import React from 'react';
-import Dialog from '@material-ui/core/Dialog';
+import { Dialog, Typography } from '@material-ui/core';
 import DialogContent from '@material-ui/core/DialogContent';
 import CloseOutlined from '@material-ui/icons/CloseOutlined';
 
@@ -23,11 +23,15 @@ function Modal({ title, open, toggleModal, children }: DialogProps) {
       PaperProps={{ style: { overflowY: 'visible', padding: '10px 8px' } }}
       maxWidth="md"
     >
-      <div className={classes.closeModal} onClick={toggleModal}>
-        <CloseOutlined fontSize={'medium'} />
-      </div>
+      <div className={classes.titleContainer}>
+        <Typography variant="h1" className={classes.title}>
+          {title}
+        </Typography>
 
-      {title && <h1 className={classes.title}>{title}</h1>}
+        <div onClick={toggleModal}>
+          <CloseOutlined className={classes.closeModal} />
+        </div>
+      </div>
 
       <DialogContent>{children}</DialogContent>
     </Dialog>
