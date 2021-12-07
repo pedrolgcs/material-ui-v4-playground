@@ -15,6 +15,7 @@ const icons = {
   create: <Create />,
 };
 
+// TODO criar um tipo para os icones
 type InputProps = TextFieldProps & {
   right?: 'search' | 'person' | 'create';
   left?: 'search' | 'person' | 'create';
