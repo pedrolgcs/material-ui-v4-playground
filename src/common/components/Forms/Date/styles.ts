@@ -9,6 +9,10 @@ export const useStyles = makeStyles((theme: Theme) =>
       padding: '11.5px 14px',
       border: '1px solid #CACACA',
 
+      '&:hover': {
+        border: '1px solid #333333',
+      },
+
       '& .MuiInput-underline:before': {
         borderBottom: 'none',
       },
@@ -16,7 +20,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       '& .MuiInput-underline:after': {
         borderBottom: 'none',
       },
-      
+
       '& .MuiInput-underline:hover:before': {
         borderBottom: 'none',
       },
