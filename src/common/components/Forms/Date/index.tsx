@@ -1,31 +1,39 @@
-import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker,
+  KeyboardDatePickerProps,
+} from '@material-ui/pickers';
+import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 
 // styles
 import { useStyles } from './styles';
 
-type DateInputProps = {
-  name: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  value: string;
+type DateInputProps = KeyboardDatePickerProps & {
+  value: Date | null;
+  onChange: (data: MaterialUiPickersDate) => void;
 };
 
-function DateInput({ onChange, value, name }: DateInputProps) {
+function DateInput({ value, onChange, ...props }: DateInputProps) {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.root} variant="outlined">
-      <TextField
-        type="date"
-        name={name}
-        onChange={onChange}
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <KeyboardDatePicker
+        disableToolbar
+        variant="inline"
+        format="dd/MM/yyyy"
+        margin="normal"
+        id="date-picker-inline"
         value={value}
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true,
+        onChange={onChange}
+        KeyboardButtonProps={{
+          'aria-label': 'change date',
         }}
+        className={classes.root}
+        {...props}
       />
-    </Paper>
+    </MuiPickersUtilsProvider>
   );
 }
 

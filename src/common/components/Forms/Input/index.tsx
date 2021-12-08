@@ -1,46 +1,42 @@
+import * as React from 'react';
 import {
   TextField,
   TextFieldProps,
   IconButton,
   InputAdornment,
 } from '@material-ui/core';
-import { Search, Person, Create } from '@material-ui/icons';
 
 // styles
 import { useStyles } from './styles';
 
-const icons = {
-  search: <Search />,
-  person: <Person />,
-  create: <Create />,
-};
-
 // TODO criar um tipo para os icones
 type InputProps = TextFieldProps & {
-  right?: 'search' | 'person' | 'create';
-  left?: 'search' | 'person' | 'create';
+  right?: React.ReactElement;
+  onClickRight?: (data: unknown) => void;
+  left?: React.ReactNode;
 };
 
-function Input({ right, left, ...props }: InputProps) {
+function Input({
+  right: RightIcon,
+  left: LeftIcon,
+  onClickRight,
+  ...props
+}: InputProps) {
   const classes = useStyles();
 
-  // start icon
   const startAdornment = () => {
-    if (left) {
-      return <InputAdornment position="start">{icons[left]}</InputAdornment>;
+    if (LeftIcon) {
+      return <InputAdornment position="start">{LeftIcon}</InputAdornment>;
     } else {
       return null;
     }
   };
 
-  // end icon
   const endAdornment = () => {
-    if (right) {
+    if (RightIcon) {
       return (
         <InputAdornment position="end">
-          <IconButton onClick={() => console.log('Clicked')}>
-            {icons[right]}
-          </IconButton>
+          <IconButton onClick={onClickRight}>{RightIcon}</IconButton>
         </InputAdornment>
       );
     } else {

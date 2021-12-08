@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Search } from '@material-ui/icons';
 
 // assets
 import { ReactComponent as FilterIcon } from '../../assets/icons/filters.svg';
@@ -14,31 +15,46 @@ import { DateInput } from '../../common/components/Forms/Date';
 // styles
 import { useStyles } from './styles';
 
+type Filters = {
+  date: Date;
+  word: string;
+};
+
 function NotionsForm() {
   const [notion, setNotion] = React.useState('');
-  const [filters, setFilters] = React.useState({
-    date: '',
-    notion: '',
+  const [filters, setFilters] = React.useState<Filters>({
+    date: new Date(),
+    word: '',
   });
 
-  function handleChangeFilter(event: React.ChangeEvent<HTMLInputElement>) {
-    const { name, value } = event.target;
-    setFilters({ ...filters, [name]: value });
-  }
-
-  function handleSubmit(event: React.FormEvent) {
-    event.preventDefault();
-    console.log(notion);
-  }
-
   const classes = useStyles();
+
+  function handleCreateNotion(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    console.log('create notion');
+  }
+
+  // * Implement debounce
+  useEffect(() => {
+    const { date, word } = filters;
+
+    // * Move this logic to service
+    const parsedDate = date ? date.toISOString().split('T')[0] : '';
+
+    const body = {
+      word,
+      date: parsedDate,
+    };
+
+    console.log(`[service] call with ${JSON.stringify(body)}`);
+  }, [filters]);
 
   return (
     <div className={classes.container}>
       <form
         className={classes.formContainer}
         autoComplete="off"
-        onSubmit={handleSubmit}
+        onSubmit={handleCreateNotion}
       >
         <Typography className={classes.subTitle}>Nova nota</Typography>
 
@@ -68,16 +84,19 @@ function NotionsForm() {
 
         <DateInput
           name="date"
-          onChange={handleChangeFilter}
-          value={filters['date']}
+          onChange={(value) => value && setFilters({ ...filters, date: value })}
+          value={filters.date}
         />
 
         <Input
           name="notion"
-          right="search"
+          right={<Search />}
+          onClickRight={() => console.log('search')}
           placeholder="Buscar palavra"
-          onChange={handleChangeFilter}
-          value={filters['notion']}
+          onChange={(event) =>
+            setFilters({ ...filters, word: event.target.value })
+          }
+          value={filters.word}
         />
       </div>
 
