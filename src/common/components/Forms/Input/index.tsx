@@ -10,32 +10,32 @@ import {
 import { useStyles } from './styles';
 
 type InputProps = TextFieldProps & {
-  right?: React.ReactElement;
-  onClickRight?: (data: unknown) => void;
-  left?: React.ReactNode;
+  iconRight?: React.ReactElement;
+  onClickIconRight?: (data: unknown) => void;
+  iconLeft?: React.ReactNode;
 };
 
 function Input({
-  right: RightIcon,
-  left: LeftIcon,
-  onClickRight,
+  iconRight: IconRight,
+  iconLeft: IconLeft,
+  onClickIconRight,
   ...props
 }: InputProps) {
   const classes = useStyles();
 
   const startAdornment = () => {
-    if (LeftIcon) {
-      return <InputAdornment position="start">{LeftIcon}</InputAdornment>;
+    if (IconLeft) {
+      return <InputAdornment position="start">{IconLeft}</InputAdornment>;
     } else {
       return null;
     }
   };
 
   const endAdornment = () => {
-    if (RightIcon) {
+    if (IconRight) {
       return (
         <InputAdornment position="end">
-          <IconButton onClick={onClickRight}>{RightIcon}</IconButton>
+          <IconButton onClick={onClickIconRight}>{IconRight}</IconButton>
         </InputAdornment>
       );
     } else {

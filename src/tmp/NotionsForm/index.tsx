@@ -90,8 +90,8 @@ function NotionsForm() {
 
         <Input
           name="notion"
-          right={<Search />}
-          onClickRight={() => console.log('search')}
+          iconRight={<Search />}
+          onClickIconRight={() => console.log('search')}
           placeholder="Buscar palavra"
           onChange={(event) =>
             setFilters({ ...filters, word: event.target.value })
