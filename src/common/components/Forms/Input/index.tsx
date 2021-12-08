@@ -23,16 +23,16 @@ function Input({
 }: InputProps) {
   const classes = useStyles();
 
-  const startAdornment = () => {
-    if (IconLeft) {
+  function startAdornment() {
+    if (!!IconLeft) {
       return <InputAdornment position="start">{IconLeft}</InputAdornment>;
     } else {
       return null;
     }
   };
 
-  const endAdornment = () => {
-    if (IconRight) {
+  function endAdornment() {
+    if (!!IconRight) {
       return (
         <InputAdornment position="end">
           <IconButton onClick={onClickIconRight}>{IconRight}</IconButton>
