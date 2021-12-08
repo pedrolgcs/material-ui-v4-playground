@@ -9,7 +9,6 @@ import {
 // styles
 import { useStyles } from './styles';
 
-// TODO criar um tipo para os icones
 type InputProps = TextFieldProps & {
   right?: React.ReactElement;
   onClickRight?: (data: unknown) => void;
