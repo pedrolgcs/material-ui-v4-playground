@@ -39,11 +39,11 @@ function NotionsForm() {
     const { date, word } = filters;
 
     // * Move this logic to service
-    const parsedDate = date ? date.toISOString().split('T')[0] : '';
+    // const parsedDate = date ? date.toISOString().split('T')[0] : '';
 
     const body = {
       word,
-      date: parsedDate,
+      date,
     };
 
     console.log(`[service] call with ${JSON.stringify(body)}`);

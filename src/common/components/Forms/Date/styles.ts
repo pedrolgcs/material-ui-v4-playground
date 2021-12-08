@@ -4,12 +4,22 @@ export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: '100%',
+      height: '100%',
       borderRadius: '8px',
-    },
-    textField: {
-      width: '100%',
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
+      padding: '11.5px 14px',
+      border: '1px solid #CACACA',
+
+      '& .MuiInput-underline:before': {
+        borderBottom: 'none',
+      },
+
+      '& .MuiInput-underline:after': {
+        borderBottom: 'none',
+      },
+      
+      '& .MuiInput-underline:hover:before': {
+        borderBottom: 'none',
+      },
     },
   })
 );
