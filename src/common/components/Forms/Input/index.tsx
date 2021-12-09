@@ -11,7 +11,7 @@ import { useStyles } from './styles';
 
 type InputProps = TextFieldProps & {
   iconRight?: React.ReactElement;
-  onClickIconRight?: (data: unknown) => void;
+  onClickIconRight?: () => void;
   iconLeft?: React.ReactNode;
 };
 
