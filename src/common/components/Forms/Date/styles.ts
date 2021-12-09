@@ -12,18 +12,6 @@ export const useStyles = makeStyles((theme: Theme) =>
       '&:hover': {
         border: '1px solid #333333',
       },
-
-      '& .MuiInput-underline:before': {
-        borderBottom: 'none',
-      },
-
-      '& .MuiInput-underline:after': {
-        borderBottom: 'none',
-      },
-
-      '& .MuiInput-underline:hover:before': {
-        borderBottom: 'none',
-      },
     },
   })
 );

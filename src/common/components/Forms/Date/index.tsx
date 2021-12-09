@@ -25,6 +25,9 @@ function DateInput({ value, onChange, ...props }: DateInputProps) {
       <KeyboardDatePicker
         disableToolbar
         keyboardIcon={<CalendarIcon width="24px" height="24px" />}
+        InputProps={{
+          disableUnderline: true,
+        }}
         variant="inline"
         format="dd/MM/yyyy"
         margin="none"
