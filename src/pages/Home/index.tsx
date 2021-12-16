@@ -19,6 +19,8 @@ const Home: React.FC = () => {
 
   const classes = useStyles();
 
+  console.log('user', user);
+
   return (
     <div className={classes.container}>
       <h1 className={classes.title}>Material UI</h1>
@@ -27,7 +29,8 @@ const Home: React.FC = () => {
         Change user
       </Button>
 
-      <h1>{user.name}</h1>
+      {user && <h1>{user.name}</h1>}
+
       {loading && <Loader />}
     </div>
   );

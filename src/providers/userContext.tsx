@@ -8,7 +8,7 @@ type User = {
 };
 
 type UserContextValue = {
-  user: User;
+  user: User | null;
   loading: boolean;
   changeUser: () => Promise<void>;
 };
@@ -20,7 +20,7 @@ type UserProviderProps = {
 const UserContext = React.createContext({} as UserContextValue);
 
 function UserProvider({ children }: UserProviderProps) {
-  const [user, setUser] = React.useState<User>({} as User);
+  const [user, setUser] = React.useState<User | null>(null);
   const [loading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
