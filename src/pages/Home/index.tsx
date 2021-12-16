@@ -1,18 +1,20 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 
+// contexts
+import { useUser } from '../../providers/userContext';
+
 // components
-import { Modal } from '../../common/components/Modal';
-import { NotionsForm } from '../../tmp/NotionsForm';
+import { Loader } from '../../common/components/Loader';
 
 // styles
 import { useStyles } from './styles';
 
 const Home: React.FC = () => {
-  const [openDialog, setOpenDialog] = React.useState(false);
+  const { user, loading, changeUser } = useUser();
 
-  function toggleModal() {
-    setOpenDialog(!openDialog);
+  async function handleChangeUser() {
+    await changeUser();
   }
 
   const classes = useStyles();
@@ -21,19 +23,12 @@ const Home: React.FC = () => {
     <div className={classes.container}>
       <h1 className={classes.title}>Material UI</h1>
 
-      {/* Open dialog button */}
-      <Button variant="contained" color="primary" onClick={toggleModal}>
-        Open dialog
+      <Button variant="contained" color="primary" onClick={handleChangeUser}>
+        Change user
       </Button>
 
-      {/* Dialog */}
-      <Modal
-        title="Minhas anotações"
-        open={openDialog}
-        toggleModal={toggleModal}
-      >
-        <NotionsForm />
-      </Modal>
+      <h1>{user.name}</h1>
+      {loading && <Loader />}
     </div>
   );
 };

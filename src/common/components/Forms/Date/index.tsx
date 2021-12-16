@@ -13,11 +13,27 @@ import { ReactComponent as CalendarIcon } from '../../../../assets/icons/calenda
 import { useStyles } from './styles';
 
 type DateInputProps = KeyboardDatePickerProps & {
+  /**
+   * Value of the input
+   */
   value: Date | null;
+  /**
+   * On change handler
+   */
   onChange: (data: MaterialUiPickersDate) => void;
 };
 
-function DateInput({ value, onChange, ...props }: DateInputProps) {
+/**
+ * DateInput
+ *
+ * @param {DateInputProps}
+ * @returns {React.ReactElement<DateInputProps>} DateInput
+ */
+function DateInput({
+  value,
+  onChange,
+  ...props
+}: DateInputProps): React.ReactElement {
   const classes = useStyles();
 
   return (

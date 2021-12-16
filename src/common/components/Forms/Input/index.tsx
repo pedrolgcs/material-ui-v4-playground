@@ -10,38 +10,53 @@ import {
 import { useStyles } from './styles';
 
 type InputProps = TextFieldProps & {
-  iconRight?: React.ReactElement;
-  onClickIconRight?: () => void;
-  iconLeft?: React.ReactNode;
+  /**
+   * Add icon at the end of the input
+   */
+  actionIcon?: React.ReactElement;
+  /**
+   * function to call when the icon is clicked
+   */
+  onClickActionIcon?: () => void;
+  /**
+   * Add icon at the start of the input
+   */
+  icon?: React.ReactNode;
 };
 
-function Input({
-  iconRight: IconRight,
-  iconLeft: IconLeft,
-  onClickIconRight,
+/**
+ * TextInput
+ * 
+ * @param {InputProps}
+ * @returns {React.ReactElement<InputProps>} TextInput
+ */
+function TextInput({
+  actionIcon: ActionIcon,
+  icon: Icon,
+  onClickActionIcon,
   ...props
-}: InputProps) {
+}: InputProps): React.ReactElement<InputProps> {
   const classes = useStyles();
 
   function startAdornment() {
-    if (!!IconLeft) {
-      return <InputAdornment position="start">{IconLeft}</InputAdornment>;
+    if (!!Icon) {
+      return <InputAdornment position="start">{Icon}</InputAdornment>;
     } else {
       return null;
     }
-  };
+  }
 
   function endAdornment() {
-    if (!!IconRight) {
+    if (!!ActionIcon) {
       return (
         <InputAdornment position="end">
-          <IconButton onClick={onClickIconRight}>{IconRight}</IconButton>
+          <IconButton onClick={onClickActionIcon}>{ActionIcon}</IconButton>
         </InputAdornment>
       );
     } else {
       return null;
     }
-  };
+  }
 
   return (
     <TextField
@@ -56,4 +71,4 @@ function Input({
   );
 }
 
-export { Input };
+export { TextInput };

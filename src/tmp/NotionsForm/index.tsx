@@ -9,7 +9,7 @@ import { ReactComponent as CalendarIcon } from '../../assets/icons/calendar.svg'
 import { ReactComponent as ArrowDownIcon } from '../../assets/icons/arrowDown.svg';
 
 // components
-import { Input } from '../../common/components/Forms/Input';
+import { TextInput } from '../../common/components/Forms/Input';
 import { DateInput } from '../../common/components/Forms/Date';
 
 // styles
@@ -58,7 +58,7 @@ function NotionsForm() {
       >
         <Typography className={classes.subTitle}>Nova nota</Typography>
 
-        <Input
+        <TextInput
           placeholder="Digite seu texto aqui"
           value={notion}
           onChange={(event) => setNotion(event.target.value)}
@@ -88,10 +88,10 @@ function NotionsForm() {
           value={filters.date}
         />
 
-        <Input
+        <TextInput
           name="notion"
-          iconRight={<Search />}
-          onClickIconRight={() => console.log('search')}
+          actionIcon={<Search />}
+          onClickActionIcon={() => console.log('search')}
           placeholder="Buscar palavra"
           onChange={(event) =>
             setFilters({ ...filters, word: event.target.value })

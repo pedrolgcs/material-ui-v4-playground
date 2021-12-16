@@ -1,9 +1,14 @@
+// providers
+import { GlobalProvider } from './providers';
+
 // pages
 import { Home } from './pages/Home';
 
 function App() {
   return (
-    <Home />
+    <GlobalProvider>
+      <Home />
+    </GlobalProvider>
   );
 }
 
