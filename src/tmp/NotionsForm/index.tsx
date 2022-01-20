@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Search } from '@material-ui/icons';
+import { add } from 'date-fns';
 
 // assets
 import { ReactComponent as FilterIcon } from '../../assets/icons/filters.svg';
@@ -20,10 +21,12 @@ type Filters = {
   word: string;
 };
 
+const MIN_DATE = add(new Date(), { days: 1 });
+
 function NotionsForm() {
   const [notion, setNotion] = React.useState('');
   const [filters, setFilters] = React.useState<Filters>({
-    date: new Date(),
+    date: MIN_DATE,
     word: '',
   });
 
@@ -84,8 +87,9 @@ function NotionsForm() {
 
         <DateInput
           name="date"
-          onChange={(value) => value && setFilters({ ...filters, date: value })}
           value={filters.date}
+          minDate={MIN_DATE}
+          onChange={(value) => value && setFilters({ ...filters, date: value })}
         />
 
         <TextInput

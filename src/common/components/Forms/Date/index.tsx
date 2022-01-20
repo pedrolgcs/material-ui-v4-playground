@@ -49,6 +49,7 @@ function DateInput({
         margin="none"
         value={value}
         onChange={onChange}
+        autoOk
         KeyboardButtonProps={{
           'aria-label': 'change date',
         }}
