@@ -1,9 +1,17 @@
-import React from 'react';
+import ReactSelect, { Props } from 'react-select';
 
-// import { Container } from './styles';
+type Option = {
+  label: string;
+  value: string;
+};
 
-const Select: React.FC = () => {
-  return <div />;
+type SelectProps = Props & {
+  name: string;
+  options: Option[];
+};
+
+function Select({ name, options, ...rest }: SelectProps) {
+  return <ReactSelect instanceId={name} options={options} {...rest} />;
 }
 
-export default Select;
+export { Select };

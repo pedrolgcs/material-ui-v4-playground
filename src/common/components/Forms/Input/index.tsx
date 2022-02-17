@@ -1,15 +1,10 @@
 import * as React from 'react';
-import {
-  TextField,
-  TextFieldProps,
-  IconButton,
-  InputAdornment,
-} from '@material-ui/core';
+import { TextField, IconButton, InputAdornment } from '@material-ui/core';
 
 // styles
 import { useStyles } from './styles';
 
-type InputProps = TextFieldProps & {
+type InputProps = React.ComponentProps<typeof TextField> & {
   /**
    * Add icon at the end of the input
    */
@@ -26,7 +21,7 @@ type InputProps = TextFieldProps & {
 
 /**
  * TextInput
- * 
+ *
  * @param {InputProps}
  * @returns {React.ReactElement<InputProps>} TextInput
  */
